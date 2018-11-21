@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <style>
+        div {
+            margin: 6px;
+        }
+        body {
+            display: flex;
+            flex-flow: wrap;
+        }
+        .container {
+            margin: auto;
+            margin-top: 20vh;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Clean special latin characters</h1>
+        <div>
+            <label for="select-text">Example special latin text: </label>
+            <select id="select-text">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Eyjafjallajökull">Eyjafjallajökull</option>
+                <option value="Skåla">Skåla</option>
+                <option value="Skagastølstind">Skagastølstind</option>
+                <option value="Gerlachovský štít">Gerlachovský štít</option>
+                <option value="Erciyes Dağı">Erciyes Dağı</option>
+                <option value="Kißlegg">Kißlegg</option>
+                <option value="Caçador">Caçador</option>
+                <option value="España">España</option>
+            </select>
+        </div>
+        <div>
+            <label for="input-text">Latin text with special letters to plane latin text: </label>
+            <input type="text" id="input-text">
+        </div>
+        <div>
+            <button id="result-btn">Apply</button>
+            <div id="result"></div>
+        </div>
+    </div>
+    <script>
+        $('#select-text').change(function () {
+            $('#input-text').val($('#select-text').val());
+        });
+        $('#result-btn').click(function () {
+            $('#input-text').val();
+            let convertString = $('#input-text').val();
+            convertString = convertString.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+            convertString = convertString.split('ø').join('oe');
+            convertString = convertString.split('Ø').join('Oe');
+            convertString = convertString.split('æ').join('ae');
+            convertString = convertString.split('Æ').join('Ae');
+            convertString = convertString.split('ß').join('ss');
+            convertString = convertString.split('ẞ').join('Ss');
+            $('#result').html(convertString);
+        });
+    </script>
+</body>
+
+</html>
