@@ -1,2 +1,4 @@
 # HTML-CSS-JS-Notes
-```npm i -g typescript```
+```console
+npm i -g typescript
+```
