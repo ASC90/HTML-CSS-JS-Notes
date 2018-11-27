@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <style>
+        .container {
+            display: flex;
+            flex-flow: wrap;
+        }
+        .prime-number {
+            display: flex;
+            flex-flow: wrap;
+            margin: 4px;
+            border: 1px solid blue;
+            padding: auto;
+            width: 40px;
+            height: 40px;
+        }
+        span {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="prime-ammount">Prime numbers from 2 to: </label>
+        <input type="text" id="prime-ammount">
+        <button id="btn-submit">calculate</button>
+    </div>
+    <div class="container"></div>
+    <script>
+        $('#btn-submit').click(function () {
+            $('.container').html();
+            let value = parseInt($('#prime-ammount').val());
+            if (value != null && value != '' && typeof value === 'number' && value > 1) {
+                for (let i = 2; i <= value; i++) {
+                    let counter = 0;
+                    for (let j = 2; j <= i; j++) {
+                        if (i % j == 0) {
+                            counter++;
+                        }
+                    }
+                    if (counter < 2) {
+                        $('.container').append('<div class="prime-number"><span>' + i + '<span><div>');
+                    }
+                }
+            } else {
+                alert('por favor introduce un valor numerico natural mayor que 1');
+            }
+        });
+    </script>
+</body>
+
+</html>
