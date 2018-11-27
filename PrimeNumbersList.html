@@ -39,7 +39,7 @@
         $('#btn-submit').click(function () {
             $('.container').html();
             let value = parseInt($('#prime-ammount').val());
-            if (value != null && value != '' && typeof value === 'number' && value > 1) {
+            if (value != null && value != '' && typeof value === 'number' && value > 1 && value < 1000000) {
                 for (let i = 2; i <= value; i++) {
                     let counter = 0;
                     for (let j = 2; j <= i; j++) {
