@@ -1,0 +1,12 @@
+cropperjs
+{
+  "name": "cropper-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Arnau Santos",
+  "license": "ISC",
+  "dependencies": {
+    "cropperjs": "^1.4.1",
+  }
+}
