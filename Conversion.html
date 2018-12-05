@@ -13,21 +13,39 @@
 
 <body>
     <div class="select">
-        <select>
+        <select id="data-type">
             <option value="" disabled selected>Choose your option</option>
-            <option value="01">Longitud</option>
-            <option value="02">Tiempo</option>
-            <option value="03">Masa</option>
-            <option value="04">Intensidad eléctrica</option>
-            <option value="05">Temperatura</option>
-            <option value="06">Cantidad sustancia</option>
-            <option value="07">Intensidad lumínica</option>
-            <option value="08">Fuerza</option>
-            <option value="09">Energía</option>
-            <option value="10">Densidad</option>
-            <option value="11">Dato informatico</option>
+            <option value="data-01">Longitud</option>
+            <option value="data-02">Tiempo</option>
+            <option value="data-03">Masa</option>
+            <option value="data-04">Intensidad eléctrica</option>
+            <option value="data-05">Temperatura</option>
+            <option value="data-06">Cantidad sustancia</option>
+            <option value="data-07">Intensidad lumínica</option>
+            <option value="data-08">Fuerza</option>
+            <option value="data-09">Energía</option>
+            <option value="data-10">Densidad</option>
+            <option value="data-11">Dato informatico</option>
         </select>
     </div>
+    <div class="select">
+        <select id="data-from">
+
+        </select>
+    </div>
+    <script>
+        $('#data-type').change(function () {
+            let dataType = $('#data-type').val();
+            switch (dataType) {
+                case 'data-01':
+                    $('#data-from').html('<option value="" disabled selected>Choose your option</option><option value="data-m">Metro</option>');
+                    break;
+
+                default:
+                    break;
+            }
+        });
+    </script>
 </body>
 
 </html>
